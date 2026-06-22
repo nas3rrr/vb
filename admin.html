@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APE Admin Panel 🦍</title>
+    <link rel="icon" type="image/png" href="02.png">
+
+    <!-- Google Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&family=Inter:wght@400;500;600;700;800&display=swap');
+    </style>
+
+    <style>
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16213e;
+            --bg-input: #0a0a15;
+            --accent-blue: #6B9AC4;
+            --accent-green: #98D8A2;
+            --accent-red: #E57373;
+            --accent-gold: #FFD700;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0b0;
+            --border-color: #2a2a4a;
+            --shadow-glow: rgba(107, 154, 196, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            direction: ltr;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-blue);
+            border-radius: 10px;
+        }
+
+        /* ===== LOGIN SCREEN ===== */
+        .login-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at center, #1a1a3e 0%, #0f0f1a 70%);
+        }
+
+        .login-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 24px;
+            padding: 48px;
+            width: 420px;
+            max-width: 90vw;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px var(--shadow-glow);
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .login-card .logo {
+            font-family: 'Bangers', cursive;
+            font-size: 4rem;
+            color: var(--accent-blue);
+            letter-spacing: 4px;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+            margin-bottom: 8px;
+        }
+
+        .login-card .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 32px;
+        }
+
+        .login-card input {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-input);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+            margin-bottom: 16px;
+        }
+
+        .login-card input:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 20px rgba(107, 154, 196, 0.2);
+        }
+
+        .login-card .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--accent-blue), #5080b0);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .login-card .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(107, 154, 196, 0.4);
+        }
+
+        .login-error {
+            color: var(--accent-red);
+            font-size: 0.85rem;
+            margin-top: 12px;
+            display: none;
+        }
+
+        /* ===== DASHBOARD ===== */
+        .dashboard {
+            display: none;
+        }
+
+        .dashboard.active {
+            display: block;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border-color);
+            padding: 24px 16px;
+            z-index: 100;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-logo {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            text-align: center;
+            letter-spacing: 3px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+
+        .sidebar-logo span {
+            font-size: 1rem;
+            display: block;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-secondary);
+            letter-spacing: 0;
+            font-weight: 500;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 4px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .nav-item:hover {
+            background: rgba(107, 154, 196, 0.1);
+            color: var(--text-primary);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(107, 154, 196, 0.2), rgba(107, 154, 196, 0.05));
+            color: var(--accent-blue);
+            border: 1px solid rgba(107, 154, 196, 0.3);
+        }
+
+        .nav-item .icon {
+            font-size: 1.3rem;
+            width: 28px;
+            text-align: center;
+        }
+
+        .nav-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 16px 0;
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            color: var(--accent-red);
+            font-size: 0.95rem;
+            width: 100%;
+            border: none;
+            background: none;
+            text-align: left;
+        }
+
+        .logout-btn:hover {
+            background: rgba(229, 115, 115, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 32px;
+            min-height: 100vh;
+        }
+
+        .page-header {
+            margin-bottom: 32px;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Cards */
+        .admin-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .admin-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-card .card-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 15px rgba(107, 154, 196, 0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group .input-hint {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            opacity: 0.7;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), #5080b0);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(107, 154, 196, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--accent-green), #70c080);
+            color: #1a1a2e;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(152, 216, 162, 0.4);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--accent-red), #c05050);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 115, 115, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-blue);
+            background: rgba(107, 154, 196, 0.1);
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+        }
+
+        /* Footer Icons List */
+        .icon-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .icon-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding: 12px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .icon-row input {
+            flex: 1;
+            padding: 10px 14px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .icon-row input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .icon-row .remove-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(229, 115, 115, 0.15);
+            border: none;
+            border-radius: 8px;
+            color: var(--accent-red);
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .icon-row .remove-icon:hover {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            padding: 16px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            z-index: 9999;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-success {
+            background: linear-gradient(135deg, var(--accent-green), #70c080);
+            color: #1a1a2e;
+            box-shadow: 0 8px 30px rgba(152, 216, 162, 0.4);
+        }
+
+        .toast-error {
+            background: linear-gradient(135deg, var(--accent-red), #c05050);
+            color: white;
+            box-shadow: 0 8px 30px rgba(229, 115, 115, 0.4);
+        }
+
+        /* Section panels */
+        .panel {
+            display: none;
+        }
+
+        .panel.active {
+            display: block;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        /* Status bar */
+        .status-bar {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .status-card {
+            flex: 1;
+            min-width: 200px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .status-card .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .status-card .stat-info h4 {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-card .stat-info p {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        /* Grid */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Live indicator */
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            z-index: 200;
+            width: 48px;
+            height: 48px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 24px 16px;
+                padding-top: 72px;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .status-bar {
+                flex-direction: column;
+            }
+        }
+
+        /* Preview box */
+        .preview-box {
+            background: var(--bg-input);
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 16px;
+        }
+
+        .preview-box h4 {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .preview-icons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .preview-icon-item {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+        }
+
+        /* About preview */
+        .about-preview {
+            background: #FFFDF7;
+            border: 3px solid #4A3B32;
+            border-radius: 20px;
+            padding: 24px;
+            color: #4A3B32;
+            font-family: 'Permanent Marker', cursive;
+            margin-top: 16px;
+        }
+
+        .about-preview h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            color: #6B9AC4;
+            margin-bottom: 12px;
+        }
+
+        .about-preview p {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* Action bar */
+        .action-bar {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== LOGIN SCREEN ===== -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-card">
+            <div class="logo">🦍 APE</div>
+            <div class="subtitle">Admin Dashboard</div>
+            <input type="password" id="loginPassword" placeholder="Enter admin password..." onkeypress="if(event.key==='Enter') attemptLogin()">
+            <button class="login-btn" onclick="attemptLogin()">🔐 LOGIN</button>
+            <div class="login-error" id="loginError">❌ Wrong password. Try again.</div>
+        </div>
+    </div>
+
+    <!-- ===== DASHBOARD ===== -->
+    <div id="dashboard" class="dashboard">
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                🦍 APE
+                <span>Admin Panel</span>
+            </div>
+
+            <div class="nav-item active" data-panel="overview" onclick="switchPanel('overview')">
+                <span class="icon">📊</span> Overview
+            </div>
+            <div class="nav-item" data-panel="contract" onclick="switchPanel('contract')">
+                <span class="icon">📜</span> Contract Address
+            </div>
+            <div class="nav-item" data-panel="links" onclick="switchPanel('links')">
+                <span class="icon">🔗</span> Links
+            </div>
+            <div class="nav-item" data-panel="icons" onclick="switchPanel('icons')">
+                <span class="icon">⭐</span> Footer Icons
+            </div>
+            <div class="nav-item" data-panel="about" onclick="switchPanel('about')">
+                <span class="icon">📖</span> About Section
+            </div>
+
+            <div class="nav-divider"></div>
+
+            <button class="logout-btn" onclick="logout()">
+                <span class="icon">🚪</span> Logout
+            </button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <!-- ===== OVERVIEW PANEL ===== -->
+            <div class="panel active" id="panel-overview">
+                <div class="page-header">
+                    <h1>👋 Welcome, Admin</h1>
+                    <p>Manage your APE website content from here. <span class="live-dot"></span> Live</p>
+                </div>
+
+                <div class="status-bar">
+                    <div class="status-card">
+                        <div class="stat-icon" style="background: rgba(107,154,196,0.15);">📜</div>
+                        <div class="stat-info">
+                            <h4>Contract</h4>
+                            <p id="stat-ca">Loading...</p>
+                        </div>
+                    </div>
+                    <div class="status-card">
+                        <div class="stat-icon" style="background: rgba(152,216,162,0.15);">🔗</div>
+                        <div class="stat-info">
+                            <h4>Links Set</h4>
+                            <p id="stat-links">0</p>
+                        </div>
+                    </div>
+                    <div class="status-card">
+                        <div class="stat-icon" style="background: rgba(255,215,0,0.15);">⭐</div>
+                        <div class="stat-info">
+                            <h4>Footer Icons</h4>
+                            <p id="stat-icons">0</p>
+                        </div>
+                    </div>
+                    <div class="status-card">
+                        <div class="stat-icon" style="background: rgba(229,115,115,0.15);">📖</div>
+                        <div class="stat-info">
+                            <h4>About Status</h4>
+                            <p id="stat-about">Default</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3>🚀 Quick Actions</h3>
+                    <p class="card-desc">Jump to a section to start editing</p>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <button class="btn btn-primary" onclick="switchPanel('contract')">📜 Edit Contract</button>
+                        <button class="btn btn-success" onclick="switchPanel('links')">🔗 Edit Links</button>
+                        <button class="btn btn-outline" onclick="switchPanel('icons')">⭐ Edit Icons</button>
+                        <button class="btn btn-outline" onclick="switchPanel('about')">📖 Edit About</button>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3>🗑️ Reset All Data</h3>
+                    <p class="card-desc">This will clear all saved admin data and revert the website to its default state</p>
+                    <button class="btn btn-danger" onclick="resetAllData()">⚠️ Reset Everything</button>
+                </div>
+            </div>
+
+            <!-- ===== CONTRACT PANEL ===== -->
+            <div class="panel" id="panel-contract">
+                <div class="page-header">
+                    <h1>📜 Contract Address</h1>
+                    <p>Change the token contract address displayed on the website</p>
+                </div>
+
+                <div class="admin-card">
+                    <h3>📋 Current Contract</h3>
+                    <p class="card-desc">This is the contract address shown on the main page</p>
+
+                    <div class="form-group">
+                        <label>Contract Address (CA)</label>
+                        <input type="text" id="input-ca" placeholder="e.g. 95QtdngA6rmai8N5pVrj92JVvK9si6mPTiZ1zTFwbrrr">
+                        <div class="input-hint">Paste the full Solana token contract address</div>
+                    </div>
+
+                    <div class="action-bar">
+                        <button class="btn btn-primary" onclick="saveContract()">💾 Save Contract</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== LINKS PANEL ===== -->
+            <div class="panel" id="panel-links">
+                <div class="page-header">
+                    <h1>🔗 Links</h1>
+                    <p>Manage all the social media and trading links</p>
+                </div>
+
+                <div class="two-col">
+                    <div class="admin-card">
+                        <h3>🐦 Social Links</h3>
+                        <p class="card-desc">Social media profile URLs</p>
+
+                        <div class="form-group">
+                            <label>X / Twitter</label>
+                            <input type="url" id="input-twitter" placeholder="https://x.com/yourproject">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Telegram</label>
+                            <input type="url" id="input-telegram" placeholder="https://t.me/yourgroup">
+                            <div class="input-hint">Leave empty to hide the Telegram button</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Website</label>
+                            <input type="url" id="input-website" placeholder="https://yourwebsite.com">
+                            <div class="input-hint">Leave empty to hide the Website button</div>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>📈 Trading Links</h3>
+                        <p class="card-desc">DEX and trading platform URLs</p>
+
+                        <div class="form-group">
+                            <label>DexScreener</label>
+                            <input type="url" id="input-dex" placeholder="https://dexscreener.com/solana/...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Buy Link (Jupiter)</label>
+                            <input type="url" id="input-buy" placeholder="https://jup.ag/?sell=SOL&buy=...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Game URL</label>
+                            <input type="url" id="input-game" placeholder="https://yourgame.com">
+                            <div class="input-hint">URL for the embedded game iframe</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <div class="action-bar" style="border-top: none; margin-top: 0; padding-top: 0;">
+                        <button class="btn btn-primary" onclick="saveLinks()">💾 Save All Links</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== ICONS PANEL ===== -->
+            <div class="panel" id="panel-icons">
+                <div class="page-header">
+                    <h1>⭐ Footer Icons</h1>
+                    <p>Manage the icon buttons shown in the website footer</p>
+                </div>
+
+                <div class="admin-card">
+                    <h3>🎨 Footer Icon Buttons</h3>
+                    <p class="card-desc">Each icon appears as a circular button in the footer. Set the label (short text) and the URL it links to.</p>
+
+                    <div class="icon-list" id="iconList">
+                        <!-- Dynamically populated -->
+                    </div>
+
+                    <div style="margin-top: 16px;">
+                        <button class="btn btn-outline btn-sm" onclick="addIconRow()">➕ Add Icon</button>
+                    </div>
+
+                    <div class="preview-box">
+                        <h4>👁️ Preview</h4>
+                        <div class="preview-icons" id="iconPreview">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                    <div class="action-bar">
+                        <button class="btn btn-primary" onclick="saveIcons()">💾 Save Icons</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== ABOUT PANEL ===== -->
+            <div class="panel" id="panel-about">
+                <div class="page-header">
+                    <h1>📖 About Section</h1>
+                    <p>Edit the content displayed in the "About Ape" section</p>
+                </div>
+
+                <div class="two-col">
+                    <div class="admin-card">
+                        <h3>✏️ Edit Content</h3>
+                        <p class="card-desc">Modify the text displayed in the about section</p>
+
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" id="input-about-title" placeholder="e.g. apes together strong">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Paragraph 1</label>
+                            <input type="text" id="input-about-p1" placeholder="First line of about text">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Paragraph 2</label>
+                            <input type="text" id="input-about-p2" placeholder="Second line of about text">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Paragraph 3</label>
+                            <input type="text" id="input-about-p3" placeholder="Third line of about text">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Paragraph 4</label>
+                            <input type="text" id="input-about-p4" placeholder="Fourth line of about text">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Status Label</label>
+                            <input type="text" id="input-about-status" placeholder="e.g. STATUS:">
+                        </div>
+
+                        <div class="action-bar">
+                            <button class="btn btn-outline" onclick="previewAbout()">👁️ Preview</button>
+                            <button class="btn btn-primary" onclick="saveAbout()">💾 Save About</button>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>👁️ Live Preview</h3>
+                        <p class="card-desc">See how it will look on the website</p>
+
+                        <div class="about-preview" id="aboutPreviewBox">
+                            <h3 id="preview-about-title">apes together strong</h3>
+                            <p id="preview-about-p1">Ape Coin ($APE) is a community-driven meme token</p>
+                            <p id="preview-about-p2">celebrating strength, unity, and crypto culture.</p>
+                            <p id="preview-about-p3">It's more than just a token — it's a movement</p>
+                            <p id="preview-about-p4">where holders go full ape together in the Web3 jungle 🦍</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ===== ADMIN PASSWORD =====
+        const ADMIN_PASSWORD = 'ape2026';
+
+        // ===== DATA DEFAULTS =====
+        const DEFAULT_DATA = {
+            contractAddress: '95QtdngA6rmai8N5pVrj92JVvK9si6mPTiZ1zTFwbrrr',
+            links: {
+                twitter: 'https://x.com/itsapedotfun',
+                dex: 'https://dexscreener.com/solana/95QtdngA6rmai8N5pVrj92JVvK9si6mPTiZ1zTFwbrrr',
+                buy: 'https://jup.ag/?sell=So11111111111111111111111111111111111111112&buy=95QtdngA6rmai8N5pVrj92JVvK9si6mPTiZ1zTFwbrrr',
+                telegram: '',
+                website: '',
+                game: 'https://www.itsapegame.fun/'
+            },
+            footerIcons: [
+                { label: 'X', url: 'https://x.com/itsapedotfun' },
+                { label: 'DEX', url: 'https://dexscreener.com/solana/95QtdngA6rmai8N5pVrj92JVvK9si6mPTiZ1zTFwbrrr' },
+                { label: 'BUY', url: 'https://jup.ag/?sell=So11111111111111111111111111111111111111112&buy=95QtdngA6rmai8N5pVrj92JVvK9si6mPTiZ1zTFwbrrr' }
+            ],
+            about: {
+                title: 'apes together strong',
+                paragraphs: [
+                    'Ape Coin ($APE) is a community-driven meme token',
+                    'celebrating strength, unity, and crypto culture.',
+                    "It's more than just a token — it's a movement",
+                    'where holders go full ape together in the Web3 jungle 🦍'
+                ],
+                status: 'STATUS:'
+            }
+        };
+
+        // ===== DATA STATE =====
+        let currentSiteData = { ...DEFAULT_DATA };
+
+        /* =====================================================================
+           ☁️  إعدادات التخزين السحابي (JSONBin.io) — عدّل القيمتين التاليتين فقط
+           --------------------------------------------------------------------
+           1) أنشئ حساباً مجانياً على https://jsonbin.io
+           2) أنشئ Bin جديد وألصق فيه محتوى ملف site-data.json ثم احفظه
+           3) انسخ "BIN ID" من الرابط، وانسخ "X-MASTER-KEY" من صفحة API Keys
+           4) ضع القيمتين هنا (نفس القيمتين في ملف index.html)
+           ===================================================================== */
+        const JSONBIN_ID  = '6a396ac0da38895dfeecbb74';
+        const JSONBIN_KEY = '$2a$10$Gg5RxdK1ILdZkHqxXxklXuzDHbzAQH9BRicpFFJoQy9tw7IoyB8Wq';
+
+        const JSONBIN_BASE = `https://api.jsonbin.io/v3/b/${JSONBIN_ID}`;
+
+        // ===== HELPER: Load data =====
+        async function loadData() {
+            try {
+                const response = await fetch(`${JSONBIN_BASE}/latest`, {
+                    headers: {
+                        'X-Master-Key': JSONBIN_KEY,
+                        'X-Bin-Meta': 'false'
+                    }
+                });
+                if (response.ok) {
+                    const parsed = await response.json();
+                    currentSiteData = {
+                        contractAddress: parsed.contractAddress || DEFAULT_DATA.contractAddress,
+                        links: { ...DEFAULT_DATA.links, ...(parsed.links || {}) },
+                        footerIcons: parsed.footerIcons || DEFAULT_DATA.footerIcons,
+                        about: {
+                            ...DEFAULT_DATA.about,
+                            ...(parsed.about || {}),
+                            paragraphs: (parsed.about && parsed.about.paragraphs) || DEFAULT_DATA.about.paragraphs
+                        }
+                    };
+                }
+            } catch (e) {
+                console.log("Could not load from global server, using default data.", e);
+            }
+            return currentSiteData;
+        }
+
+        async function saveData(data) {
+            currentSiteData = data;
+
+            try {
+                const response = await fetch(JSONBIN_BASE, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': JSONBIN_KEY
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    showToast('✅ تم الحفظ بنجاح! ستظهر التغييرات للجميع.', 'success');
+                } else {
+                    const errText = await response.text();
+                    console.error('Save failed:', response.status, errText);
+                    throw new Error('Failed to save');
+                }
+            } catch (e) {
+                console.error("Save error:", e);
+                showToast('❌ حدث خطأ أثناء الحفظ. تأكد من إعدادات JSONBin والاتصال بالإنترنت.', 'error');
+            }
+        }
+
+        // ===== LOGIN =====
+        async function attemptLogin() {
+            const pw = document.getElementById('loginPassword').value;
+            if (pw === ADMIN_PASSWORD) {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('dashboard').classList.add('active');
+                sessionStorage.setItem('apeAdminLoggedIn', 'true');
+                await populateAllFields();
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+                document.getElementById('loginPassword').style.borderColor = 'var(--accent-red)';
+                setTimeout(() => {
+                    document.getElementById('loginError').style.display = 'none';
+                    document.getElementById('loginPassword').style.borderColor = 'var(--border-color)';
+                }, 3000);
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem('apeAdminLoggedIn');
+            document.getElementById('dashboard').classList.remove('active');
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('loginPassword').value = '';
+        }
+
+        // Auto-login if session active
+        if (sessionStorage.getItem('apeAdminLoggedIn') === 'true') {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('dashboard').classList.add('active');
+            setTimeout(populateAllFields, 100);
+        }
+
+        // ===== PANEL SWITCHING =====
+        function switchPanel(panelName) {
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+            document.getElementById(`panel-${panelName}`).classList.add('active');
+            document.querySelector(`.nav-item[data-panel="${panelName}"]`).classList.add('active');
+
+            // Close sidebar on mobile
+            document.getElementById('sidebar').classList.remove('open');
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        // ===== POPULATE FIELDS =====
+        async function populateAllFields() {
+            const data = await loadData();
+
+            // Contract
+            document.getElementById('input-ca').value = data.contractAddress;
+
+            // Links
+            document.getElementById('input-twitter').value = data.links.twitter || '';
+            document.getElementById('input-dex').value = data.links.dex || '';
+            document.getElementById('input-buy').value = data.links.buy || '';
+            document.getElementById('input-telegram').value = data.links.telegram || '';
+            document.getElementById('input-website').value = data.links.website || '';
+            document.getElementById('input-game').value = data.links.game || '';
+
+            // About
+            document.getElementById('input-about-title').value = data.about.title || '';
+            document.getElementById('input-about-p1').value = data.about.paragraphs[0] || '';
+            document.getElementById('input-about-p2').value = data.about.paragraphs[1] || '';
+            document.getElementById('input-about-p3').value = data.about.paragraphs[2] || '';
+            document.getElementById('input-about-p4').value = data.about.paragraphs[3] || '';
+            document.getElementById('input-about-status').value = data.about.status || '';
+
+            // Icons
+            renderIconList(data.footerIcons);
+
+            // Stats
+            updateStats(data);
+
+            // About preview
+            previewAbout();
+        }
+
+        // ===== STATS =====
+        function updateStats(data) {
+            const ca = data.contractAddress;
+            document.getElementById('stat-ca').textContent = ca.substring(0, 6) + '...' + ca.substring(ca.length - 4);
+
+            let linkCount = 0;
+            Object.values(data.links).forEach(v => { if (v) linkCount++; });
+            document.getElementById('stat-links').textContent = linkCount;
+
+            document.getElementById('stat-icons').textContent = data.footerIcons.length;
+            document.getElementById('stat-about').textContent = data.about.title ? 'Custom' : 'Default';
+        }
+
+        // ===== SAVE FUNCTIONS =====
+        async function saveContract() {
+            const data = currentSiteData;
+            const ca = document.getElementById('input-ca').value.trim();
+            if (!ca) {
+                showToast('Please enter a contract address', 'error');
+                return;
+            }
+            data.contractAddress = ca;
+            await saveData(data);
+            updateStats(data);
+        }
+
+        async function saveLinks() {
+            const data = currentSiteData;
+            data.links.twitter = document.getElementById('input-twitter').value.trim();
+            data.links.dex = document.getElementById('input-dex').value.trim();
+            data.links.buy = document.getElementById('input-buy').value.trim();
+            data.links.telegram = document.getElementById('input-telegram').value.trim();
+            data.links.website = document.getElementById('input-website').value.trim();
+            data.links.game = document.getElementById('input-game').value.trim();
+            await saveData(data);
+            updateStats(data);
+        }
+
+        async function saveIcons() {
+            const data = currentSiteData;
+            const rows = document.querySelectorAll('.icon-row');
+            const icons = [];
+            rows.forEach(row => {
+                const label = row.querySelector('.icon-label').value.trim();
+                const url = row.querySelector('.icon-url').value.trim();
+                if (label && url) {
+                    icons.push({ label, url });
+                }
+            });
+            data.footerIcons = icons;
+            await saveData(data);
+            updateStats(data);
+            updateIconPreview();
+        }
+
+        async function saveAbout() {
+            const data = currentSiteData;
+            data.about.title = document.getElementById('input-about-title').value.trim();
+            data.about.paragraphs = [
+                document.getElementById('input-about-p1').value.trim(),
+                document.getElementById('input-about-p2').value.trim(),
+                document.getElementById('input-about-p3').value.trim(),
+                document.getElementById('input-about-p4').value.trim()
+            ];
+            data.about.status = document.getElementById('input-about-status').value.trim();
+            await saveData(data);
+            updateStats(data);
+        }
+
+        // ===== ICON LIST MANAGEMENT =====
+        function renderIconList(icons) {
+            const container = document.getElementById('iconList');
+            container.innerHTML = '';
+            icons.forEach((icon, i) => {
+                addIconRowWithData(icon.label, icon.url);
+            });
+            updateIconPreview();
+        }
+
+        function addIconRow() {
+            addIconRowWithData('', '');
+        }
+
+        function addIconRowWithData(label, url) {
+            const container = document.getElementById('iconList');
+            const row = document.createElement('div');
+            row.className = 'icon-row';
+            row.innerHTML = `
+                <input type="text" class="icon-label" placeholder="Label (e.g. X, TG, DEX)" value="${escapeHtml(label)}" oninput="updateIconPreview()">
+                <input type="url" class="icon-url" placeholder="URL (e.g. https://x.com/...)" value="${escapeHtml(url)}">
+                <button class="remove-icon" onclick="this.parentElement.remove(); updateIconPreview();">✕</button>
+            `;
+            container.appendChild(row);
+            updateIconPreview();
+        }
+
+        function updateIconPreview() {
+            const container = document.getElementById('iconPreview');
+            container.innerHTML = '';
+            document.querySelectorAll('.icon-row').forEach(row => {
+                const label = row.querySelector('.icon-label').value.trim();
+                if (label) {
+                    const div = document.createElement('div');
+                    div.className = 'preview-icon-item';
+                    div.textContent = label;
+                    container.appendChild(div);
+                }
+            });
+        }
+
+        // ===== ABOUT PREVIEW =====
+        function previewAbout() {
+            document.getElementById('preview-about-title').textContent = document.getElementById('input-about-title').value || 'apes together strong';
+            document.getElementById('preview-about-p1').textContent = document.getElementById('input-about-p1').value || '...';
+            document.getElementById('preview-about-p2').textContent = document.getElementById('input-about-p2').value || '...';
+            document.getElementById('preview-about-p3').textContent = document.getElementById('input-about-p3').value || '...';
+            document.getElementById('preview-about-p4').textContent = document.getElementById('input-about-p4').value || '...';
+        }
+
+        // Live preview on input
+        ['input-about-title', 'input-about-p1', 'input-about-p2', 'input-about-p3', 'input-about-p4'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', previewAbout);
+        });
+
+        // ===== RESET =====
+        function resetAllData() {
+            if (confirm('⚠️ Are you sure? This will delete ALL saved data and revert the website to defaults.')) {
+                localStorage.removeItem('apeAdminData');
+                populateAllFields();
+                showToast('🗑️ All data has been reset!', 'success');
+            }
+        }
+
+        // ===== TOAST =====
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast toast-${type} show`;
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // ===== UTILITY =====
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+
+</html>

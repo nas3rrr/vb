@@ -1,0 +1,26 @@
+{
+    "contractAddress": "95QtdngA6rmai8N5pVrj92JVvK9si6mPTiZ1zTFwbrrr",
+    "links": {
+        "twitter": "https://x.com/itsapedotfun",
+        "dex": "https://dexscreener.com/solana/95QtdngA6rmai8N5pVrj92JVvK9si6mPTiZ1zTFwbrrr",
+        "buy": "https://jup.ag/?sell=So11111111111111111111111111111111111111112&buy=95QtdngA6rmai8N5pVrj92JVvK9si6mPTiZ1zTFwbrrr",
+        "telegram": "",
+        "website": "",
+        "game": "https://www.itsapegame.fun/"
+    },
+    "footerIcons": [
+        { "label": "X", "url": "https://x.com/itsapedotfun" },
+        { "label": "DEX", "url": "https://dexscreener.com/solana/95QtdngA6rmai8N5pVrj92JVvK9si6mPTiZ1zTFwbrrr" },
+        { "label": "BUY", "url": "https://jup.ag/?sell=So11111111111111111111111111111111111111112&buy=95QtdngA6rmai8N5pVrj92JVvK9si6mPTiZ1zTFwbrrr" }
+    ],
+    "about": {
+        "title": "apes together strong",
+        "paragraphs": [
+            "Ape Coin ($APE) is a community-driven meme token",
+            "celebrating strength, unity, and crypto culture.",
+            "It's more than just a token — it's a movement",
+            "where holders go full ape together in the Web3 jungle 🦍"
+        ],
+        "status": "STATUS:"
+    }
+}

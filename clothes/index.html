@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+
+<html lang="en" class="watcher loaded">
+<div id="in-page-channel-node-id" data-channel-name="in_page_channel_lGpUta"></div>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>APE</title>
+
+	<meta name="format-detection" content="telephone=no">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Creepster&family=ZCOOL+KuaiLe&family=Rubik+Glitch&display=swap');
+
+		body {
+			opacity: 0;
+			visibility: hidden;
+			transition:
+				opacity 0.2s ease 0.2s,
+				visibility 0.2s ease 0.2s;
+			font-family: 'ZCOOL KuaiLe', cursive, sans-serif !important;
+			font-weight: 400;
+			letter-spacing: -0.02em;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-family: 'Creepster', cursive !important;
+			font-weight: 700;
+			letter-spacing: -0.05em;
+			transform: rotate(-2deg);
+		}
+
+		.hero__title {
+			font-family: 'Rubik Glitch', cursive !important;
+			font-weight: 700;
+			letter-spacing: -0.08em;
+			font-size: 4.5rem;
+			transform: rotate(-3deg);
+		}
+
+		.header__logo span {
+			font-family: 'Creepster', cursive !important;
+			font-weight: 700;
+			letter-spacing: -0.04em;
+			font-size: 2.5rem;
+			transform: rotate(-2deg);
+		}
+
+		.menu__link {
+			font-family: 'ZCOOL KuaiLe', cursive !important;
+			font-weight: 600;
+			letter-spacing: -0.01em;
+		}
+
+		.menu__link._navigator-active {
+			transform: rotate(-1deg) scale(1.1);
+		}
+
+		.button,
+		.hero__button,
+		.header__button {
+			font-family: 'Rubik Glitch', cursive !important;
+			font-weight: 700;
+			letter-spacing: -0.03em;
+			transform: rotate(-1deg);
+		}
+
+		.about__text p,
+		.about__column,
+		.swiper-slide-main__text {
+			font-family: 'ZCOOL KuaiLe', cursive !important;
+			font-weight: 400;
+			line-height: 1.8;
+			letter-spacing: -0.01em;
+		}
+
+		.about__title,
+		.tokenomics__title,
+		.content-tokenomics__title-item {
+			font-family: 'Creepster', cursive !important;
+			font-weight: 700;
+			letter-spacing: -0.06em;
+			transform: rotate(-2deg);
+		}
+
+		.join__title p {
+			font-family: 'Rubik Glitch', cursive !important;
+			font-weight: 700;
+			letter-spacing: -0.05em;
+			transform: rotate(-3deg);
+			font-size: 3.5rem;
+		}
+
+		.how__title {
+			font-family: 'Creepster', cursive !important;
+			font-weight: 700;
+			letter-spacing: -0.04em;
+			transform: rotate(-2deg);
+		}
+
+		.swiper-slide-main__title span {
+			font-family: 'ZCOOL KuaiLe', cursive !important;
+			font-weight: 600;
+			letter-spacing: -0.02em;
+		}
+
+		.content-tokenomics__title span {
+			font-family: 'Rubik Glitch', cursive !important;
+			font-weight: 700;
+			letter-spacing: -0.1em;
+			transform: rotate(-3deg);
+		}
+
+		.content-tokenomics__item span {
+			font-family: 'ZCOOL KuaiLe', cursive !important;
+			font-weight: 600;
+		}
+
+		/* Simple animations only */
+		@keyframes simple-glitch {
+
+			0%,
+			100% {
+				transform: rotate(-2deg);
+			}
+
+			50% {
+				transform: rotate(2deg);
+			}
+		}
+
+		.hero__title:hover,
+		.header__logo span:hover {
+			animation: simple-glitch 0.3s ease-in-out;
+		}
+
+		/* APE text styles */
+		.APE-text {
+			font-family: 'Rubik Glitch', 'Creepster', cursive !important;
+			font-weight: 700;
+			font-size: 2.5rem;
+			color: #0066FF !important;
+			text-shadow: 2px 2px 0px rgba(0, 102, 255, 0.3), -1px -1px 0px rgba(0, 150, 255, 0.5);
+			transform: rotate(-2deg);
+			display: block;
+			text-align: center;
+			padding: 20px 10px;
+			letter-spacing: -0.05em;
+			animation: APE-pulse 2s ease-in-out infinite;
+		}
+
+		@keyframes APE-pulse {
+
+			0%,
+			100% {
+				transform: rotate(-2deg) scale(1);
+				color: #0066FF;
+				text-shadow: 2px 2px 0px rgba(0, 102, 255, 0.3), -1px -1px 0px rgba(0, 150, 255, 0.5);
+			}
+
+			25% {
+				transform: rotate(1deg) scale(1.05);
+				color: #0080FF;
+				text-shadow: 3px 3px 0px rgba(0, 128, 255, 0.4), -2px -2px 0px rgba(0, 180, 255, 0.6);
+			}
+
+			50% {
+				transform: rotate(-1deg) scale(1.1);
+				color: #0099FF;
+				text-shadow: 4px 4px 0px rgba(0, 153, 255, 0.5), -3px -3px 0px rgba(0, 200, 255, 0.7);
+			}
+
+			75% {
+				transform: rotate(2deg) scale(1.05);
+				color: #00B3FF;
+				text-shadow: 3px 3px 0px rgba(0, 179, 255, 0.4), -2px -2px 0px rgba(0, 220, 255, 0.6);
+			}
+		}
+
+		.partners__item:hover .APE-text {
+			animation: APE-crazy 0.5s ease-in-out infinite;
+		}
+
+		@keyframes APE-crazy {
+
+			0%,
+			100% {
+				transform: rotate(-5deg) scale(1.2) skew(-2deg, 1deg);
+				color: #FF0066;
+				text-shadow: 4px 4px 0px rgba(255, 0, 102, 0.6);
+			}
+
+			25% {
+				transform: rotate(3deg) scale(0.8) skew(2deg, -1deg);
+				color: #0066FF;
+				text-shadow: 3px 3px 0px rgba(0, 102, 255, 0.6);
+			}
+
+			50% {
+				transform: rotate(-3deg) scale(1.3) skew(-1deg, 2deg);
+				color: #FF6600;
+				text-shadow: 5px 5px 0px rgba(255, 102, 0, 0.6);
+			}
+
+			75% {
+				transform: rotate(4deg) scale(0.9) skew(1deg, -2deg);
+				color: #00FF66;
+				text-shadow: 3px 3px 0px rgba(0, 255, 102, 0.6);
+			}
+		}
+
+		.loaded body {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		/* Make header thinner */
+		.header {
+			padding: 10px 0 !important;
+			min-height: 60px !important;
+		}
+
+		.header__container {
+			padding: 0 15px !important;
+		}
+
+		.header__logo {
+			font-size: 1.8rem !important;
+		}
+
+		.header__logo img {
+			max-height: 40px !important;
+		}
+		
+		/* Reduce text size in about section */
+		.about__text p {
+			font-size: 2.5rem !important;
+		}
+		.about__column {
+			font-size: 3rem !important;
+		}
+	</style>
+	<link rel="stylesheet" href="./APE_files/style.min.css">
+	<link rel="shortcut icon" href="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		@keyframes slide-in-one-tap {
+			from {
+				transform: translateY(80px);
+			}
+
+			to {
+				transform: translateY(0px);
+			}
+		}
+
+		.trust-hide-gracefully {
+			opacity: 0;
+		}
+
+		.trust-wallet-one-tap .hidden {
+			display: none;
+		}
+
+		.trust-wallet-one-tap .semibold {
+			font-weight: 500;
+		}
+
+		.trust-wallet-one-tap .binance-plex {
+			font-family: 'Binance';
+		}
+
+		.trust-wallet-one-tap .rounded-full {
+			border-radius: 50%;
+		}
+
+		.trust-wallet-one-tap .flex {
+			display: flex;
+		}
+
+		.trust-wallet-one-tap .flex-col {
+			flex-direction: column;
+		}
+
+		.trust-wallet-one-tap .items-center {
+			align-items: center;
+		}
+
+		.trust-wallet-one-tap .space-between {
+			justify-content: space-between;
+		}
+
+		.trust-wallet-one-tap .justify-center {
+			justify-content: center;
+		}
+
+		.trust-wallet-one-tap .w-full {
+			width: 100%;
+		}
+
+		.trust-wallet-one-tap .box {
+			transition: all 0.5s cubic-bezier(0, 0, 0, 1.43);
+			animation: slide-in-one-tap 0.5s cubic-bezier(0, 0, 0, 1.43);
+			width: 384px;
+			border-radius: 15px;
+			background: #fff;
+			box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+			position: fixed;
+			right: 30px;
+			bottom: 30px;
+			z-index: 1020;
+		}
+
+		.trust-wallet-one-tap .header {
+			gap: 15px;
+			border-bottom: 1px solid #e6e6e6;
+			padding: 10px 18px;
+		}
+
+		.trust-wallet-one-tap .header .left-items {
+			gap: 15px;
+		}
+
+		.trust-wallet-one-tap .header .title {
+			color: #1e2329;
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 28px;
+		}
+
+		.trust-wallet-one-tap .header .subtitle {
+			color: #474d57;
+			font-size: 14px;
+			line-height: 20px;
+		}
+
+		.trust-wallet-one-tap .header .close {
+			color: #1e2329;
+			cursor: pointer;
+		}
+
+		.trust-wallet-one-tap .body {
+			padding: 9px 18px;
+			gap: 10px;
+		}
+
+		.trust-wallet-one-tap .body .right-items {
+			gap: 10px;
+			width: 100%;
+		}
+
+		.trust-wallet-one-tap .body .right-items .wallet-title {
+			color: #1e2329;
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 20px;
+		}
+
+		.trust-wallet-one-tap .body .right-items .wallet-subtitle {
+			color: #474d57;
+			font-size: 14px;
+			line-height: 20px;
+		}
+
+		.trust-wallet-one-tap .connect-indicator {
+			gap: 15px;
+			padding: 8px 0;
+		}
+
+		.trust-wallet-one-tap .connect-indicator .flow-icon {
+			color: #474d57;
+		}
+
+		.trust-wallet-one-tap .loading-color {
+			color: #fff;
+		}
+
+		.trust-wallet-one-tap .button {
+			border-radius: 50px;
+			outline: 2px solid transparent;
+			outline-offset: 2px;
+			background-color: rgb(5, 0, 255);
+			border-color: rgb(229, 231, 235);
+			cursor: pointer;
+			text-align: center;
+			height: 45px;
+		}
+
+		.trust-wallet-one-tap .button .button-text {
+			color: #fff;
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 20px;
+		}
+
+		.trust-wallet-one-tap .footer {
+			margin: 20px 30px;
+		}
+
+		.trust-wallet-one-tap .check-icon {
+			color: #fff;
+		}
+
+		@font-face {
+			font-family: 'Binance';
+			src: url(chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/fonts/BinancePlex-Regular.otf) format('opentype');
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'Binance';
+			src: url(chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/fonts/BinancePlex-Medium.otf) format('opentype');
+			font-weight: 500;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'Binance';
+			src: url(chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/fonts/BinancePlex-SemiBold.otf) format('opentype');
+			font-weight: 600;
+			font-style: normal;
+		}
+
+		/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL2FwcC9zcmMvb25lVGFwL3N0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0lBQ0UsMkJBQTJCO0VBQzdCO0VBQ0E7SUFDRSwwQkFBMEI7RUFDNUI7QUFDRjs7QUFFQTtFQUNFLFVBQVU7QUFDWjs7QUFHRTtJQUNFLGFBQWE7RUFDZjs7QUFFQTtJQUNFLGdCQUFnQjtFQUNsQjs7QUFFQTtJQUNFLHNCQUFzQjtFQUN4Qjs7QUFFQTtJQUNFLGtCQUFrQjtFQUNwQjs7QUFFQTtJQUNFLGFBQWE7RUFDZjs7QUFFQTtJQUNFLHNCQUFzQjtFQUN4Qjs7QUFFQTtJQUNFLG1CQUFtQjtFQUNyQjs7QUFFQTtJQUNFLDhCQUE4QjtFQUNoQzs7QUFFQTtJQUNFLHVCQUF1QjtFQUN6Qjs7QUFFQTtJQUNFLFdBQVc7RUFDYjs7QUFFQTtJQUNFLGdEQUFnRDtJQUNoRCw0REFBNEQ7SUFDNUQsWUFBWTtJQUNaLG1CQUFtQjtJQUNuQixnQkFBZ0I7SUFDaEIsK0NBQStDO0lBQy9DLGVBQWU7SUFDZixXQUFXO0lBQ1gsWUFBWTtJQUNaLGFBQWE7RUFDZjs7QUFFQTtJQUNFLFNBQVM7SUFDVCxnQ0FBZ0M7SUFDaEMsa0JBQWtCO0VBdUJwQjs7QUFyQkU7TUFDRSxTQUFTO0lBQ1g7O0FBRUE7TUFDRSxjQUFjO01BQ2QsZUFBZTtNQUNmLGdCQUFnQjtNQUNoQixpQkFBaUI7SUFDbkI7O0FBRUE7TUFDRSxjQUFjO01BQ2QsZUFBZTtNQUNmLGlCQUFpQjtJQUNuQjs7QUFFQTtNQUNFLGNBQWM7TUFDZCxlQUFlO0lBQ2pCOztBQUdGO0lBQ0UsaUJBQWlCO0lBQ2pCLFNBQVM7RUFtQlg7O0FBakJFO01BQ0UsU0FBUztNQUNULFdBQVc7SUFjYjs7QUFaRTtRQUNFLGNBQWM7UUFDZCxlQUFlO1FBQ2YsZ0JBQWdCO1FBQ2hCLGlCQUFpQjtNQUNuQjs7QUFFQTtRQUNFLGNBQWM7UUFDZCxlQUFlO1FBQ2YsaUJBQWlCO01BQ25COztBQUlKO0lBQ0UsU0FBUztJQUNULGNBQWM7RUFLaEI7O0FBSEU7TUFDRSxjQUFjO0lBQ2hCOztBQUdGO0lBQ0UsV0FBVztFQUNiOztBQUVBO0lBQ0UsbUJBQW1CO0lBQ25CLDhCQUE4QjtJQUM5QixtQkFBbUI7SUFDbkIsZ0NBQWdDO0lBQ2hDLGdDQUFnQztJQUNoQyxlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLFlBQVk7RUFRZDs7QUFORTtNQUNFLFdBQVc7TUFDWCxlQUFlO01BQ2YsZ0JBQWdCO01BQ2hCLGlCQUFpQjtJQUNuQjs7QUFHRjtJQUNFLGlCQUFpQjtFQUNuQjs7QUFFQTtJQUNFLFdBQVc7RUFDYjs7QUFHRjtFQUNFLHNCQUFzQjtFQUN0QiwrREFBMEU7RUFDMUUsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLHNCQUFzQjtFQUN0QiwrREFBeUU7RUFDekUsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLHNCQUFzQjtFQUN0QiwrREFBMkU7RUFDM0UsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtBQUNwQiIsInNvdXJjZXNDb250ZW50IjpbIkBrZXlmcmFtZXMgc2xpZGUtaW4tb25lLXRhcCB7XG4gIGZyb20ge1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSg4MHB4KTtcbiAgfVxuICB0byB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDBweCk7XG4gIH1cbn1cblxuLnRydXN0LWhpZGUtZ3JhY2VmdWxseSB7XG4gIG9wYWNpdHk6IDA7XG59XG5cbi50cnVzdC13YWxsZXQtb25lLXRhcCB7XG4gIC5oaWRkZW4ge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cblxuICAuc2VtaWJvbGQge1xuICAgIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIH1cblxuICAuYmluYW5jZS1wbGV4IHtcbiAgICBmb250LWZhbWlseTogJ0JpbmFuY2UnO1xuICB9XG5cbiAgLnJvdW5kZWQtZnVsbCB7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICB9XG5cbiAgLmZsZXgge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gIH1cblxuICAuZmxleC1jb2wge1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIH1cblxuICAuaXRlbXMtY2VudGVyIHtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICB9XG5cbiAgLnNwYWNlLWJldHdlZW4ge1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgfVxuXG4gIC5qdXN0aWZ5LWNlbnRlciB7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIH1cblxuICAudy1mdWxsIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgfVxuXG4gIC5ib3gge1xuICAgIHRyYW5zaXRpb246IGFsbCAwLjVzIGN1YmljLWJlemllcigwLCAwLCAwLCAxLjQzKTtcbiAgICBhbmltYXRpb246IHNsaWRlLWluLW9uZS10YXAgMC41cyBjdWJpYy1iZXppZXIoMCwgMCwgMCwgMS40Myk7XG4gICAgd2lkdGg6IDM4NHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDE1cHg7XG4gICAgYmFja2dyb3VuZDogI2ZmZjtcbiAgICBib3gtc2hhZG93OiAwcHggMnB4IDRweCAwcHggcmdiYSgwLCAwLCAwLCAwLjI1KTtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgcmlnaHQ6IDMwcHg7XG4gICAgYm90dG9tOiAzMHB4O1xuICAgIHotaW5kZXg6IDEwMjA7XG4gIH1cblxuICAuaGVhZGVyIHtcbiAgICBnYXA6IDE1cHg7XG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNlNmU2ZTY7XG4gICAgcGFkZGluZzogMTBweCAxOHB4O1xuXG4gICAgLmxlZnQtaXRlbXMge1xuICAgICAgZ2FwOiAxNXB4O1xuICAgIH1cblxuICAgIC50aXRsZSB7XG4gICAgICBjb2xvcjogIzFlMjMyOTtcbiAgICAgIGZvbnQtc2l6ZTogMThweDtcbiAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgICBsaW5lLWhlaWdodDogMjhweDtcbiAgICB9XG5cbiAgICAuc3VidGl0bGUge1xuICAgICAgY29sb3I6ICM0NzRkNTc7XG4gICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICBsaW5lLWhlaWdodDogMjBweDtcbiAgICB9XG5cbiAgICAuY2xvc2Uge1xuICAgICAgY29sb3I6ICMxZTIzMjk7XG4gICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgfVxuICB9XG5cbiAgLmJvZHkge1xuICAgIHBhZGRpbmc6IDlweCAxOHB4O1xuICAgIGdhcDogMTBweDtcblxuICAgIC5yaWdodC1pdGVtcyB7XG4gICAgICBnYXA6IDEwcHg7XG4gICAgICB3aWR0aDogMTAwJTtcblxuICAgICAgLndhbGxldC10aXRsZSB7XG4gICAgICAgIGNvbG9yOiAjMWUyMzI5O1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgICAgIGxpbmUtaGVpZ2h0OiAyMHB4O1xuICAgICAgfVxuXG4gICAgICAud2FsbGV0LXN1YnRpdGxlIHtcbiAgICAgICAgY29sb3I6ICM0NzRkNTc7XG4gICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgbGluZS1oZWlnaHQ6IDIwcHg7XG4gICAgICB9XG4gICAgfVxuICB9XG5cbiAgLmNvbm5lY3QtaW5kaWNhdG9yIHtcbiAgICBnYXA6IDE1cHg7XG4gICAgcGFkZGluZzogOHB4IDA7XG5cbiAgICAuZmxvdy1pY29uIHtcbiAgICAgIGNvbG9yOiAjNDc0ZDU3O1xuICAgIH1cbiAgfVxuXG4gIC5sb2FkaW5nLWNvbG9yIHtcbiAgICBjb2xvcjogI2ZmZjtcbiAgfVxuXG4gIC5idXR0b24ge1xuICAgIGJvcmRlci1yYWRpdXM6IDUwcHg7XG4gICAgb3V0bGluZTogMnB4IHNvbGlkIHRyYW5zcGFyZW50O1xuICAgIG91dGxpbmUtb2Zmc2V0OiAycHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDUsIDAsIDI1NSk7XG4gICAgYm9yZGVyLWNvbG9yOiByZ2IoMjI5LCAyMzEsIDIzNSk7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBoZWlnaHQ6IDQ1cHg7XG5cbiAgICAuYnV0dG9uLXRleHQge1xuICAgICAgY29sb3I6ICNmZmY7XG4gICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICBmb250LXdlaWdodDogNjAwO1xuICAgICAgbGluZS1oZWlnaHQ6IDIwcHg7XG4gICAgfVxuICB9XG5cbiAgLmZvb3RlciB7XG4gICAgbWFyZ2luOiAyMHB4IDMwcHg7XG4gIH1cblxuICAuY2hlY2staWNvbiB7XG4gICAgY29sb3I6ICNmZmY7XG4gIH1cbn1cblxuQGZvbnQtZmFjZSB7XG4gIGZvbnQtZmFtaWx5OiAnQmluYW5jZSc7XG4gIHNyYzogdXJsKCcuL2ZvbnRzL2JpbmFuY2VQbGV4L0JpbmFuY2VQbGV4LVJlZ3VsYXIub3RmJykgZm9ybWF0KCdvcGVudHlwZScpO1xuICBmb250LXdlaWdodDogNDAwO1xuICBmb250LXN0eWxlOiBub3JtYWw7XG59XG5cbkBmb250LWZhY2Uge1xuICBmb250LWZhbWlseTogJ0JpbmFuY2UnO1xuICBzcmM6IHVybCgnLi9mb250cy9iaW5hbmNlUGxleC9CaW5hbmNlUGxleC1NZWRpdW0ub3RmJykgZm9ybWF0KCdvcGVudHlwZScpO1xuICBmb250LXdlaWdodDogNTAwO1xuICBmb250LXN0eWxlOiBub3JtYWw7XG59XG5cbkBmb250LWZhY2Uge1xuICBmb250LWZhbWlseTogJ0JpbmFuY2UnO1xuICBzcmM6IHVybCgnLi9mb250cy9iaW5hbmNlUGxleC9CaW5hbmNlUGxleC1TZW1pQm9sZC5vdGYnKSBmb3JtYXQoJ29wZW50eXBlJyk7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGZvbnQtc3R5bGU6IG5vcm1hbDtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="menu-open-bg"></div>
+		<header class="header _header-scroll">
+			<div class="header__container">
+				<div class="header__logo"><img src="./APE_files/logo.png" alt="Logo"><span>APE</span>
+				</div>
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<span class="menu__link">About</span>
+							</li>
+							<li class="menu__item">/</li>
+							<li class="menu__item">
+								<span class="menu__link">How to buy</span>
+							</li>
+							<li class="menu__item">/</li>
+							<li class="menu__item">
+								<span class="menu__link">Tokenomics</span>
+							</li>
+							<li class="menu__item">/</li>
+							<li class="menu__item">
+								<span class="menu__link _navigator-active">Contact</span>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<a href="ZZZZZZZ" class="header__button" data-da=".menu__body, 991.98">Buy Now</a>
+				<button class="header__button" onclick="openPFPModal()" style="margin-left: 10px; padding: 18px 30px; font-size: 1.2rem;">ape pfp generator </button>
+			</div>
+		</header>
+
+		<!-- PFP Generator Modal -->
+		<div id="pfpModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px);">
+			<div style="position: relative; margin: 50px auto; padding: 0; width: 90%; max-width: 1200px; max-height: 90vh; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden;">
+				<div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; background: linear-gradient(135deg, #4c82ff, #2a55d9); border-bottom: 4px solid #000;">
+					<h2 style="color: white; margin: 0; font-family: 'Creepster', cursive; font-size: 2rem; text-shadow: 2px 2px 0px #000;">APE PFP Generator</h2>
+					<button onclick="closePFPModal()" style="background: #ff4444; color: white; border: 3px solid #000; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; font-weight: bold; cursor: pointer; box-shadow: 3px 3px 0px rgba(0,0,0,0.3); transition: all 0.1s;">×</button>
+				</div>
+				<div style="height: calc(90vh - 100px); overflow: auto;">
+					<iframe src="1.html" style="width: 100%; height: 100%; border: none;" sandbox="allow-same-origin allow-scripts allow-forms allow-downloads allow-popups allow-modals"></iframe>
+				</div>
+			</div>
+		</div>
+
+		<main class="page">
+			<section class="page__hero hero">
+				<div class="hero__bg">
+					<img src="./APE_files/heroBG.png" alt="Image">
+				</div>
+				<div class="hero__container">
+					<div class="hero__content">
+						<h1 class="hero__title">
+							<img src="./APE_files/heroTitle.png" alt="APE">
+						</h1>
+						<div class="hero__actions">
+							<a href="ZZZZZZZZZZ" class="hero__button">
+								<span>Buy</span>
+							</a>
+							<div class="hero__social">
+								<a target="_blank" href="ZZZZZZZZZZZZZZZZ" class="hero__social-item">
+									<svg xmlns="http://www.w3.org/2000/svg" width="40" height="36" viewBox="0 0 40 36"
+										fill="none">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M35.8567 1.11964C36.3485 0.910374 36.8868 0.838201 37.4156 0.910628C37.9443 0.983055 38.4442 1.19744 38.8632 1.53146C39.2822 1.86548 39.605 2.30693 39.798 2.80986C39.9909 3.31279 40.047 3.85881 39.9604 4.3911L35.4467 32.0698C35.0089 34.7396 32.1112 36.2707 29.6891 34.9408C27.6631 33.8282 24.654 32.114 21.9474 30.3254C20.5941 29.4301 16.4485 26.563 16.958 24.5229C17.3959 22.7785 24.3615 16.2235 28.3418 12.3263C29.9041 10.7952 29.1916 9.91194 27.3467 11.3203C22.7653 14.8171 15.4097 20.1348 12.9777 21.6317C10.8323 22.9515 9.7138 23.1769 8.3764 22.9515C5.93646 22.5411 3.67363 21.9053 1.82675 21.1307C-0.66892 20.0845 -0.54752 16.6158 1.82476 15.6058L35.8567 1.11964Z"
+											fill="black"></path>
+									</svg>
+								</a>
+								<a target="_blank" href="ZZZZZZZZZZ" class="hero__social-item">
+									<svg xmlns="http://www.w3.org/2000/svg" width="52" height="47" viewBox="0 0 52 47"
+										fill="none">
+										<path
+											d="M31.3482 2.00752L37.2777 0.0495388L29.2127 19.1349L51.106 34.2479L39.173 38.1883L25.7924 29.0544L19.132 44.806L13.1993 46.7651L21.8261 26.3506L0.894087 12.0656L13.1301 8.02512L25.2662 16.4049L31.3482 2.00752ZM39.6384 34.0997L42.9238 33.0148L12.4547 11.9758L8.92921 13.1399L39.6384 34.0997Z"
+											fill="black"></path>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="hero__image">
+						<img src="./APE_files/hero.png" alt="Image">
+					</div>
+				</div>
+			</section>
+			<div class="page__partners partners">
+				<div class="partners__line">
+					<div class="partners__row">
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+					</div>
+					<div class="partners__row">
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+						<div class="partners__item">
+							<span class="APE-text">APE</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<section class="page__about about" data-watch="navigator" data-watch-threshold="0.41">
+				<div class="about__container">
+					<div class="about__header">
+						<h2 class="about__title">About APE</h2>
+						<span>U0_0U</span>
+					</div>
+					<div class="about__body">
+						<div class="about__text">
+							<p>Ape Coin ($APE) is a community-driven meme token</p>
+							<p>celebrating strength, unity, and crypto culture.</p>
+							<p>It's more than just a token — it's a movement</p>
+							<p>where holders go <span class="d1">full ape together</span></p>
+							<p>in the <span class="d2">Web3 jungle</span> 🦍</p>
+						</div>
+						<div class="about__image _watcher-view" data-watch-threshold="0.4" data-watch-once=""
+							data-watch="">
+							<img src="./APE_files/about.png" alt="Image">
+						</div>
+					</div>
+					<div class="about__bottom _watcher-view" data-watch-threshold="0.8" data-watch-once=""
+						data-watch="">
+						<div class="about__columns">
+							<div class="about__column _watcher-view" data-watch-threshold="0.6" data-watch-once=""
+								data-watch="">
+								Buy, hold.
+								Reflect, evolve
+								Join the Apevolution
+							</div>
+							<div class="about__column _watcher-view" data-watch-threshold="0.6" data-watch-once=""
+								data-watch="">
+								Join APE, AAAAAAAAAAAAAAAA
+								AAAAAAAAAAAA
+							</div>
+						</div>
+						<button href="#" class="about__button" data-watch-threshold="1" data-watch-once=""
+							data-watch="">
+							<span>Join APE's Community</span>
+						</button>
+					</div>
+				</div>
+			</section>
+			<section class="page__how how" data-watch="navigator" data-watch-threshold="0.34">
+				<div class="how__container">
+					<div class="how__header">
+						<div class="how__title _watcher-view" data-watch-threshold="0.5" data-watch-once=""
+							data-watch="">
+							How to Buy
+						</div>
+						<div class="how__ca">
+							<span><span>APE</span> Gang</span>
+							<button class="copy-ca-btn">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33"
+									fill="none">
+									<path
+										d="M28 12.4958C27.9861 12.3733 27.9593 12.2526 27.92 12.1358V12.0158C27.8559 11.8787 27.7704 11.7527 27.6667 11.6424L19.6667 3.64243C19.5564 3.53872 19.4304 3.45321 19.2933 3.3891C19.2535 3.38345 19.2131 3.38345 19.1733 3.3891C19.0379 3.31142 18.8883 3.26156 18.7333 3.24243H13.3333C12.2725 3.24243 11.2551 3.66386 10.5049 4.414C9.75476 5.16415 9.33333 6.18157 9.33333 7.24243V8.57576H8C6.93913 8.57576 5.92172 8.99719 5.17157 9.74734C4.42143 10.4975 4 11.5149 4 12.5758V25.9091C4 26.97 4.42143 27.9874 5.17157 28.7375C5.92172 29.4877 6.93913 29.9091 8 29.9091H18.6667C19.7275 29.9091 20.7449 29.4877 21.4951 28.7375C22.2452 27.9874 22.6667 26.97 22.6667 25.9091V24.5758H24C25.0609 24.5758 26.0783 24.1543 26.8284 23.4042C27.5786 22.654 28 21.6366 28 20.5758V12.5758V12.4958ZM20 7.7891L23.4533 11.2424H21.3333C20.9797 11.2424 20.6406 11.102 20.3905 10.8519C20.1405 10.6019 20 10.2627 20 9.9091V7.7891ZM20 25.9091C20 26.2627 19.8595 26.6019 19.6095 26.8519C19.3594 27.102 19.0203 27.2424 18.6667 27.2424H8C7.64638 27.2424 7.30724 27.102 7.05719 26.8519C6.80714 26.6019 6.66667 26.2627 6.66667 25.9091V12.5758C6.66667 12.2221 6.80714 11.883 7.05719 11.633C7.30724 11.3829 7.64638 11.2424 8 11.2424H9.33333V20.5758C9.33333 21.6366 9.75476 22.654 10.5049 23.4042C11.2551 24.1543 12.2725 24.5758 13.3333 24.5758H20V25.9091ZM25.3333 20.5758C25.3333 20.9294 25.1929 21.2685 24.9428 21.5186C24.6928 21.7686 24.3536 21.9091 24 21.9091H13.3333C12.9797 21.9091 12.6406 21.7686 12.3905 21.5186C12.1405 21.2685 12 20.9294 12 20.5758V7.24243C12 6.88881 12.1405 6.54967 12.3905 6.29962C12.6406 6.04957 12.9797 5.9091 13.3333 5.9091H17.3333V9.9091C17.3333 10.97 17.7548 11.9874 18.5049 12.7375C19.2551 13.4877 20.2725 13.9091 21.3333 13.9091H25.3333V20.5758Z"
+										fill="white"></path>
+								</svg>
+							</button>
+						</div>
+					</div>
+					<div class="how__sliders">
+						<div
+							class="how__slider-main swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+							<div class="how__wrapper-main swiper-wrapper">
+								<div class="how__slide-main swiper-slide swiper-slide-main swiper-slide-active"
+									style="width: 440px;">
+									<h3 class="swiper-slide-main__title">
+										<span>Create a Wallet</span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="59" height="72"
+											viewBox="0 0 59 72" fill="none">
+											<path
+												d="M11.8159 29.482C21.9579 22.2946 31.5773 14.4988 41.5616 7.12035C41.6045 7.08866 43.1325 5.60865 42.8311 6.73578C42.2569 8.88298 41.2909 10.8436 40.7608 13.0474C36.8323 29.3803 33.5942 45.8886 29.4846 62.1776"
+												stroke="#0066FF" stroke-width="12" stroke-linecap="round"></path>
+											<path d="M6.41495 65.2302C20.5898 65.2387 34.7472 65.5298 48.919 65.7718"
+												stroke="#0066FF" stroke-width="12" stroke-linecap="round"></path>
+										</svg>
+									</h3>
+									<p class="swiper-slide-main__text">
+										Download Phantom or your wallet of choice from the app
+										store or google play store for free. Desktop users,
+										download the google chrome extension by going to phantom
+										app
+									</p>
+								</div>
+								<div class="how__slide-main swiper-slide swiper-slide-main swiper-slide-next"
+									style="width: 440px;">
+									<h3 class="swiper-slide-main__title">
+										<span>Create a Wallet</span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="59" height="72"
+											viewBox="0 0 59 72" fill="none">
+											<path
+												d="M11.8159 29.482C21.9579 22.2946 31.5773 14.4988 41.5616 7.12035C41.6045 7.08866 43.1325 5.60865 42.8311 6.73578C42.2569 8.88298 41.2909 10.8436 40.7608 13.0474C36.8323 29.3803 33.5942 45.8886 29.4846 62.1776"
+												stroke="#0066FF" stroke-width="12" stroke-linecap="round"></path>
+											<path d="M6.41495 65.2302C20.5898 65.2387 34.7472 65.5298 48.919 65.7718"
+												stroke="#0066FF" stroke-width="12" stroke-linecap="round"></path>
+										</svg>
+									</h3>
+									<p class="swiper-slide-main__text">
+										Download Phantom or your wallet of choice from the app
+										store or google play store for free. Desktop users,
+										download the google chrome extension by going
+									</p>
+								</div>
+								<div class="how__slide-main swiper-slide swiper-slide-main" style="width: 440px;">
+									<h3 class="swiper-slide-main__title">
+										<span>Create a Wallet</span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="59" height="72"
+											viewBox="0 0 59 72" fill="none">
+											<path
+												d="M11.8159 29.482C21.9579 22.2946 31.5773 14.4988 41.5616 7.12035C41.6045 7.08866 43.1325 5.60865 42.8311 6.73578C42.2569 8.88298 41.2909 10.8436 40.7608 13.0474C36.8323 29.3803 33.5942 45.8886 29.4846 62.1776"
+												stroke="#0066FF" stroke-width="12" stroke-linecap="round"></path>
+											<path d="M6.41495 65.2302C20.5898 65.2387 34.7472 65.5298 48.919 65.7718"
+												stroke="#0066FF" stroke-width="12" stroke-linecap="round"></path>
+										</svg>
+									</h3>
+									<p class="swiper-slide-main__text">
+										Download Phantom or your wallet of choice from the app
+										store or google play Phantom or your wallet of choice from
+										the app store or google play
+									</p>
+								</div>
+								<div class="how__slide-main swiper-slide swiper-slide-main" style="width: 440px;">
+									<h3 class="swiper-slide-main__title">
+										<span>Create a Wallet</span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="59" height="72"
+											viewBox="0 0 59 72" fill="none">
+											<path
+												d="M11.8159 29.482C21.9579 22.2946 31.5773 14.4988 41.5616 7.12035C41.6045 7.08866 43.1325 5.60865 42.8311 6.73578C42.2569 8.88298 41.2909 10.8436 40.7608 13.0474C36.8323 29.3803 33.5942 45.8886 29.4846 62.1776"
+												stroke="#0066FF" stroke-width="12" stroke-linecap="round"></path>
+											<path d="M6.41495 65.2302C20.5898 65.2387 34.7472 65.5298 48.919 65.7718"
+												stroke="#0066FF" stroke-width="12" stroke-linecap="round"></path>
+										</svg>
+									</h3>
+									<p class="swiper-slide-main__text">
+										Download Phantom or your wallet of choice from the app
+										store or google play Phantom or your wallet of choice from
+										the app store or google play google play
+									</p>
+								</div>
+							</div>
+							<div class="how__nav-main-box">
+								<button type="button"
+									class="how__swiper-button-prev swiper-button-prev swiper-button-disabled"
+									disabled="">
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+										fill="none">
+										<path d="M15.25 7L6.25 16L15.25 25M7.5 16L25.75 16" stroke="#0066FF"
+											stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"></path>
+									</svg>
+								</button>
+								<div
+									class="how__swiper-pagination swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+									<span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span
+										class="swiper-pagination-bullet"></span><span
+										class="swiper-pagination-bullet"></span><span
+										class="swiper-pagination-bullet"></span></div>
+								<button type="button" class="how__swiper-button-next swiper-button-next">
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+										fill="none">
+										<path d="M16.75 7L25.75 16L16.75 25M24.5 16L6.25 16" stroke="black"
+											stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"></path>
+									</svg>
+								</button>
+							</div>
+						</div>
+
+						<div
+							class="how__slider-image swiper swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden">
+							<div class="how__wrapper-image swiper-wrapper">
+								<div class="how__slide-image swiper-slide swiper-slide-image swiper-slide-visible swiper-slide-fully-visible swiper-slide-active"
+									style="width: 909px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+									<img src="./APE_files/01(1).png" alt="Image">
+								</div>
+								<div class="how__slide-image swiper-slide swiper-slide-image swiper-slide-next"
+									style="width: 909px; opacity: 0; transform: translate3d(-909px, 0px, 0px);">
+									<img src="./APE_files/02(1).png" alt="Image">
+								</div>
+								<div class="how__slide-image swiper-slide swiper-slide-image"
+									style="width: 909px; opacity: 0; transform: translate3d(-1818px, 0px, 0px);">
+									<img src="./APE_files/03(1).png" alt="Image">
+								</div>
+								<div class="how__slide-image swiper-slide swiper-slide-image"
+									style="width: 909px; opacity: 0; transform: translate3d(-2727px, 0px, 0px);">
+									<img src="./APE_files/04(1).png" alt="Image">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page__tokenomics tokenomics" data-watch="navigator" data-watch-threshold="0.32">
+				<div class="tokenomics__container _watcher-view" data-watch-threshold="0.4" data-watch-once=""
+					data-watch="">
+					<h2 class="tokenomics__title _watcher-view" data-watch-threshold="0.5" data-watch-once=""
+						data-watch="">
+						<span>APE—</span>
+					</h2>
+					<div class="tokenomics__body _watcher-view" data-watch-threshold="0.3" data-watch-once=""
+						data-watch="">
+						<div class="tokenomics__image _watcher-view" data-watch-threshold="0.4" data-watch-once=""
+							data-watch="">
+							<video src="./APE_files/11.mp4" alt="Image" controls autoplay muted loop></video>
+						</div>
+						<div class="tokenomics__picture">
+							<img src="./APE_files/02(2).png" alt="Image">
+						</div>
+						<div class="tokenomics__content content-tokenomics">
+							<div class="content-tokenomics__body">
+								<div class="content-tokenomics__bg"></div>
+								<div class="content-tokenomics__content _watcher-view" data-watch-threshold="0.4"
+									data-watch-once="" data-watch="">
+									<h3 class="content-tokenomics__title-item">Tokenomics</h3>
+									<div class="content-tokenomics__items">
+										<div class="content-tokenomics__item">
+											<span>LP</span>
+											<span>Burnt</span>
+										</div>
+										<div class="content-tokenomics__item">
+											<span>Token Supply</span>
+											<span>1Billion</span>
+										</div>
+										<div class="content-tokenomics__item">
+											<span>Buy/Sell Tax</span>
+											<span>0/0</span>
+										</div>
+									</div>
+									<div class="content-tokenomics__code">
+										<img src="./APE_files/01.svg" alt="Image">
+									</div>
+									<div class="content-tokenomics__ca">
+										<span>CA:</span>
+										<span>XXXXXXXXX</span>
+										<button class="copy-ca-btn">
+											<svg xmlns="http://www.w3.org/2000/svg" width="32" height="33"
+												viewBox="0 0 32 33" fill="none">
+												<path
+													d="M28 12.169C27.9861 12.0465 27.9593 11.9258 27.92 11.809V11.689C27.8559 11.5519 27.7704 11.4259 27.6667 11.3156L19.6667 3.31565C19.5564 3.21194 19.4304 3.12642 19.2933 3.06232C19.2535 3.05666 19.2131 3.05666 19.1733 3.06232C19.0379 2.98464 18.8883 2.93478 18.7333 2.91565H13.3333C12.2725 2.91565 11.2551 3.33708 10.5049 4.08722C9.75476 4.83737 9.33333 5.85478 9.33333 6.91565V8.24898H8C6.93913 8.24898 5.92172 8.67041 5.17157 9.42056C4.42143 10.1707 4 11.1881 4 12.249V25.5823C4 26.6432 4.42143 27.6606 5.17157 28.4107C5.92172 29.1609 6.93913 29.5823 8 29.5823H18.6667C19.7275 29.5823 20.7449 29.1609 21.4951 28.4107C22.2452 27.6606 22.6667 26.6432 22.6667 25.5823V24.249H24C25.0609 24.249 26.0783 23.8276 26.8284 23.0774C27.5786 22.3273 28 21.3098 28 20.249V12.249V12.169ZM20 7.46232L23.4533 10.9156H21.3333C20.9797 10.9156 20.6406 10.7752 20.3905 10.5251C20.1405 10.2751 20 9.93594 20 9.58232V7.46232ZM20 25.5823C20 25.9359 19.8595 26.2751 19.6095 26.5251C19.3594 26.7752 19.0203 26.9156 18.6667 26.9156H8C7.64638 26.9156 7.30724 26.7752 7.05719 26.5251C6.80714 26.2751 6.66667 25.9359 6.66667 25.5823V12.249C6.66667 11.8954 6.80714 11.5562 7.05719 11.3062C7.30724 11.0561 7.64638 10.9156 8 10.9156H9.33333V20.249C9.33333 21.3098 9.75476 22.3273 10.5049 23.0774C11.2551 23.8276 12.2725 24.249 13.3333 24.249H20V25.5823ZM25.3333 20.249C25.3333 20.6026 25.1929 20.9417 24.9428 21.1918C24.6928 21.4418 24.3536 21.5823 24 21.5823H13.3333C12.9797 21.5823 12.6406 21.4418 12.3905 21.1918C12.1405 20.9417 12 20.6026 12 20.249V6.91565C12 6.56203 12.1405 6.22289 12.3905 5.97284C12.6406 5.72279 12.9797 5.58232 13.3333 5.58232H17.3333V9.58232C17.3333 10.6432 17.7548 11.6606 18.5049 12.4107C19.2551 13.1609 20.2725 13.5823 21.3333 13.5823H25.3333V20.249Z"
+													fill="#0066FF"></path>
+											</svg>
+										</button>
+									</div>
+								</div>
+							</div>
+							<h2 class="content-tokenomics__title">
+								<span>NOMICS<i></i> <i></i></span>
+							</h2>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="page__train train">
+				<div class="train__container">
+					<div class="train__body">
+						<img src="./APE_files/train.png" alt="Image">
+					</div>
+				</div>
+			</div>
+			<section class="page__join join _watcher-view" data-watch="navigator" data-watch-threshold="0.91">
+				<div class="join__bg">
+					<img src="./APE_files/bg.jpg" alt="Image">
+				</div>
+				<div class="join__container">
+					<div class="join__social">
+						<a target="_blank" href="XXXXXXXXXXXXXXXXXXX" class="join__social-item">
+							<span>Telegram</span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="28" height="25" viewBox="0 0 28 25"
+								fill="none">
+								<path fill-rule="evenodd" clip-rule="evenodd"
+									d="M25.1219 0.664191C25.4636 0.518809 25.8376 0.468667 26.2049 0.518985C26.5723 0.569303 26.9195 0.718242 27.2106 0.950298C27.5017 1.18235 27.726 1.48905 27.86 1.83845C27.9941 2.18785 28.0331 2.5672 27.9729 2.937L24.8371 22.1664C24.5329 24.0212 22.5198 25.085 20.8371 24.161C19.4295 23.388 17.339 22.1971 15.4586 20.9545C14.5184 20.3325 11.6383 18.3406 11.9923 16.9233C12.2965 15.7114 17.1357 11.1574 19.901 8.44988C20.9864 7.38616 20.4914 6.77253 19.2097 7.75098C16.0269 10.1803 10.9166 13.8747 9.22701 14.9147C7.73652 15.8316 6.95947 15.9882 6.03033 15.8316C4.33521 15.5465 2.76314 15.1048 1.48005 14.5666C-0.253786 13.8398 -0.169445 11.43 1.47867 10.7283L25.1219 0.664191Z"
+									fill="white"></path>
+							</svg>
+						</a>
+						<a target="_blank" href="XXXXXXXXXXXXXXX" class="join__social-item">
+							<span>x.com</span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33"
+								fill="none">
+								<path
+									d="M24.6537 3H29.0643L19.428 14.0146L30.765 29H21.8886L14.9371 19.9102L6.98115 29H2.56811L12.8756 17.2183L2 3.0012L11.1017 3.0012L17.3857 11.3095L24.6537 3ZM23.1063 26.3608H25.5502L9.77375 5.50136H7.15134L23.1063 26.3608Z"
+									fill="white"></path>
+							</svg>
+						</a>
+						<a target="_blank" href="XXXXXXXXXXXXXXXX" class="join__social-item">
+							<span>BUY</span>
+						</a>
+						<a target="_blank" href="XXXXXXXXXXX" class="join__social-item">
+							<span>DEX</span>
+						</a>
+					</div>
+					<div class="join__body">
+						<h2 class="join__title">
+							<p>join</p>
+							<p>the</p>
+							<p>team</p>
+						</h2>
+						<div class="join__image">
+							<img src="./APE_files/01(3).png" alt="Image">
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copy">2025 &copy; ALL RIGHTS RESERVED</div>
+				<ul class="footer__menu">
+					<li class="footer__menu-item">
+						<span class="footer__menu-link"><span>About</span></span>
+					</li>
+					<li class="footer__menu-item">/</li>
+					<li class="footer__menu-item">
+						<span class="footer__menu-link"><span>How to buy</span></span>
+					</li>
+					<li class="footer__menu-item">/</li>
+					<li class="footer__menu-item">
+						<span class="footer__menu-link"><span>Tokenomics</span></span>
+					</li>
+					<li class="footer__menu-item">/</li>
+					<li class="footer__menu-item">
+						<span class="footer__menu-link"><span>Contact</span></span>
+					</li>
+				</ul>
+				<span class="footer__osnovo">
+					<span>APE</span>
+				</span>
+			</div>
+		</footer>
+
+	</div>
+	<script src="./APE_files/app.min.js"></script>
+	<script>
+		// Add click handlers to menu items without changing HTML
+		document.addEventListener('DOMContentLoaded', function () {
+			// Header menu items
+			const menuLinks = document.querySelectorAll('.menu__link');
+			menuLinks.forEach((link, index) => {
+				link.style.cursor = 'pointer';
+				link.addEventListener('click', function (e) {
+					e.preventDefault();
+					const sections = ['.about', '.how', '.tokenomics', '.join'];
+					const targetSection = sections[index];
+					if (targetSection) {
+						const element = document.querySelector(targetSection);
+						if (element) {
+							element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+						}
+					}
+				});
+			});
+
+			// Footer menu items
+			const footerLinks = document.querySelectorAll('.footer__menu-link');
+			footerLinks.forEach((link, index) => {
+				link.style.cursor = 'pointer';
+				link.addEventListener('click', function (e) {
+					e.preventDefault();
+					const sections = ['.about', '.how', '.tokenomics', '.join'];
+					const targetSection = sections[index];
+					if (targetSection) {
+						const element = document.querySelector(targetSection);
+						if (element) {
+							element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+						}
+					}
+				});
+			});
+		});
+
+		// PFP Generator Modal Functions
+		function openPFPModal() {
+			document.getElementById('pfpModal').style.display = 'block';
+			document.body.style.overflow = 'hidden'; // Prevent background scrolling
+		}
+
+		function closePFPModal() {
+			document.getElementById('pfpModal').style.display = 'none';
+			document.body.style.overflow = 'auto'; // Restore scrolling
+		}
+
+		// Close modal when clicking outside
+		window.onclick = function(event) {
+			const modal = document.getElementById('pfpModal');
+			if (event.target == modal) {
+				closePFPModal();
+			}
+		}
+
+		// Close modal with Escape key
+		document.addEventListener('keydown', function(event) {
+			if (event.key === 'Escape') {
+				closePFPModal();
+			}
+		});
+	</script>
+
+	</div>
+</body>
+
+</html>
