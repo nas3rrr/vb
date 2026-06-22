@@ -1082,7 +1082,7 @@
                 });
 
                 if (response.ok) {
-                    showToast('✅ تم الحفظ بنجاح! ستظهر التغييرات للجميع.', 'success');
+                    showToast('✅ Saved successfully! Changes are now live for everyone.');
                 } else {
                     const errText = await response.text();
                     console.error('Save failed:', response.status, errText);
@@ -1090,7 +1090,7 @@
                 }
             } catch (e) {
                 console.error("Save error:", e);
-                showToast('❌ حدث خطأ أثناء الحفظ. تأكد من إعدادات JSONBin والاتصال بالإنترنت.', 'error');
+                showToast('❌ Save failed. Check your JSONBin settings and internet connection..', 'error');
             }
         }
 
